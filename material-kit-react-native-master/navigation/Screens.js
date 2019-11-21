@@ -11,6 +11,7 @@ import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import March2020Screen from '../screens/March2020'
+import PollingStationScreen from '../screens/PollingStation'
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -126,6 +127,21 @@ const ElectionsStack = createStackNavigator({
   transitionConfig,
 });
 
+const PollingStack = createStackNavigator({
+  PollingStation: {
+    screen: PollingStationScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header search tabs title="Polling Stations" navigation={navigation} />,
+    })
+  },
+},
+{
+  cardStyle: { 
+    backgroundColor: '#EEEEEE', //this is the backgroundColor for the app
+  },
+  transitionConfig,
+});
+
 
 const AppStack = createDrawerNavigator(
   {
@@ -148,6 +164,14 @@ const AppStack = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="March 2020" title="March 2020" />
+        )
+      }
+    },
+    PollingStation: {
+      screen: PollingStack,
+      navigationOptions: {
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="Polling Station" title="Polling Station" />
         )
       }
     },

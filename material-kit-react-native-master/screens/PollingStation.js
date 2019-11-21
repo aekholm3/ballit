@@ -1,6 +1,6 @@
 import React from 'react';
 // import { DrawerItems } from 'react-navigation';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 
 import { Icon, Product } from '../components/';
@@ -8,7 +8,7 @@ import { Icon, Product } from '../components/';
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
-export default class March2020 extends React.Component {
+export default class PollingStation extends React.Component {
 
   renderProducts = () => {
     const { navigation } = this.props;
@@ -16,23 +16,14 @@ export default class March2020 extends React.Component {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
-        <Block flex>
-          <Button size = "large" style={[styles.button, styles.shadow] } color = "warning" onPress={() => navigation.navigate('Profile')} >
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Choose Candidates</Text>
-          </Button>
-        
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning">
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Swipe on Propositions</Text>
-          </Button>
-
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning"> 
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Your Ballot</Text>
-          </Button>
-
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning" onPress={() => navigation.navigate('PollingStation')} > 
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Find Polling Stations</Text>
-          </Button>
-          </Block>
+        <Block flex >
+        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text color="black" size={20}>Your Zip Code: {"\n"} 94305</Text>
+      <Button size={10} shadowless={true}>Change Zip Code</Button>
+      </View>
+        <Image style={{width: 400,height:600}} resizeMode="contain"
+                  source={require('../assets/images/pollingmap.jpg')} />
+        </Block>
       </ScrollView>
     )
   }
@@ -47,6 +38,10 @@ export default class March2020 extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    box: {
+        justifyContent: "center",
+        flexDirection:"row", 
+    },
   shadow: {
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
