@@ -10,6 +10,7 @@ import OnboardingScreen from '../screens/Onboarding';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
+import March2020Screen from '../screens/March2020'
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -91,7 +92,7 @@ const HomeStack = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header search tabs title="Home" navigation={navigation} />,
+      header: <Header search tabs title="Upcoming Elections" navigation={navigation} />,
     })
   },
   Pro: {
@@ -121,7 +122,15 @@ const AppStack = createDrawerNavigator(
       screen: HomeStack,
       navigationOptions: {
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Home" title="Home" />
+          <Drawer focused={focused} screen="Upcoming Elections" title="Upcoming Elections" />
+        )
+      }
+    },
+    March2020: {
+      screen: March2020Screen,
+      navigationOptions: {
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="March 2020" title="March 2020" />
         )
       }
     },

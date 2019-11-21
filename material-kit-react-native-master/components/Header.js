@@ -9,11 +9,11 @@ import materialTheme from '../constants/Theme';
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
 
-const ChatButton = ({isWhite, style, navigation}) => (
+/*const ChatButton = ({isWhite, style, navigation}) => (
   <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
     <Icon
       family="GalioExtra"
-      size={16}
+      size={}
       name="chat-33"
       color={theme.COLORS[isWhite ? 'WHITE' : 'ICON']}
     />
@@ -31,7 +31,7 @@ const BasketButton = ({isWhite, style, navigation}) => (
     />
     <Block middle style={styles.notify} />
   </TouchableOpacity>
-);
+);*/
 
 const SearchButton = ({isWhite, style, navigation}) => (
   <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
@@ -55,14 +55,14 @@ class Header extends React.Component {
     const { routeName } = navigation.state;
 
     if (title === 'Title') {
-      return [
+      /*return [
         <ChatButton key='chat-title' navigation={navigation} isWhite={white} />,
         <BasketButton key='basket-title' navigation={navigation} isWhite={white} />
-      ]
+      ]*/
     }
 
     switch (routeName) {
-      case 'Home':
+      /*case 'Home':
         return ([
           <ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
           <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
@@ -101,13 +101,13 @@ class Header extends React.Component {
         return ([
           <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
           <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
-        ]);
+        ]);*/
       default:
         break;
     }
   }
 
-  renderSearch = () => {
+  /*renderSearch = () => {
     const { navigation } = this.props;
     return (
       <Input
@@ -140,9 +140,9 @@ class Header extends React.Component {
         </Button>
       </Block>
     )
-  }
+  }*/
 
-  renderHeader = () => {
+  /*renderHeader = () => {
     const { search, tabs } = this.props;
     if (search || tabs) {
       return (
@@ -153,7 +153,7 @@ class Header extends React.Component {
       )
     }
     return null;
-  }
+  }*/
 
   render() {
     const { back, title, white, transparent, navigation } = this.props;
@@ -182,7 +182,6 @@ class Header extends React.Component {
           ]}
           onLeftPress={this.handleLeftPress}
         />
-        {this.renderHeader()}
       </Block>
     );
   }
@@ -197,7 +196,7 @@ const styles = StyleSheet.create({
   },
   title: {
     width: '100%',
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   navbar: {
@@ -224,6 +223,7 @@ const styles = StyleSheet.create({
     right: 8,
   },
   header: {
+    height: theme.SIZES.BASE * 3,
     backgroundColor: theme.COLORS.WHITE,
   },
   divider: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     borderRightColor: theme.COLORS.MUTED,
   },
   search: {
-    height: 48,
+    height: 60,
     width: width - 32,
     marginHorizontal: 16,
     borderWidth: 1,

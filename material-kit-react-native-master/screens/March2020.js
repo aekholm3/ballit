@@ -8,7 +8,7 @@ import { Icon, Product } from '../components/';
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
-export default class Home extends React.Component {
+export default class March2020 extends React.Component {
 
   renderProducts = () => {
     const { navigation } = this.props;
@@ -17,9 +17,9 @@ export default class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Button size = "large" style={[styles.button, styles.shadow] } color = "warning" onPress={() => navigation.navigate('March2020')} >
+          <Button size = "large" style={[styles.button, styles.shadow] } color = "warning" onPress={() => navigation.navigate('Profile')} >
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>March 2020</Text>
-            <Text color="white" size={20}>Primary Election</Text>
+            <Text color="white" size={20}>Primary hi</Text>
           </Button>
         
           <Button size = "large" style={[styles.button, styles.shadow]} color = "warning">
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
     width: width - (theme.SIZES.BASE * 2),
     height: theme.SIZES.BASE * 5,
   },
-  home: {
+  /*home: {
     width: width,    
-  },
+  }, */ 
   header: {
     backgroundColor: theme.COLORS.WHITE,
     shadowColor: theme.COLORS.BLACK,
