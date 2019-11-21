@@ -18,17 +18,19 @@ export default class March2020 extends React.Component {
         contentContainerStyle={styles.products}>
         <Block flex>
           <Button size = "large" style={[styles.button, styles.shadow] } color = "warning" onPress={() => navigation.navigate('Profile')} >
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>March 2020</Text>
-            <Text color="white" size={20}>Primary hi</Text>
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Choose Candidates</Text>
           </Button>
         
           <Button size = "large" style={[styles.button, styles.shadow]} color = "warning">
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>August 2020</Text>
-            <Text color="white" size={20}>District Election</Text> 
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Swipe on Propositions</Text>
           </Button>
+
           <Button size = "large" style={[styles.button, styles.shadow]} color = "warning"> 
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>November 2020</Text>
-            <Text color="white" size={20}>Presidential Election</Text> 
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Your Ballot</Text>
+          </Button>
+
+          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning"> 
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Find Polling Stations</Text>
           </Button>
           </Block>
       </ScrollView>
@@ -57,9 +59,9 @@ const styles = StyleSheet.create({
     width: width - (theme.SIZES.BASE * 2),
     height: theme.SIZES.BASE * 5,
   },
-  /*home: {
+  home: {
     width: width,    
-  }, */ 
+  }, 
   header: {
     backgroundColor: theme.COLORS.WHITE,
     shadowColor: theme.COLORS.BLACK,

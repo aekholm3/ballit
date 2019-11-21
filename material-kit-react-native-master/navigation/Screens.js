@@ -110,6 +110,23 @@ const HomeStack = createStackNavigator({
   transitionConfig,
 });
 
+
+const ElectionsStack = createStackNavigator({
+  March2020: {
+    screen: March2020Screen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header search tabs title="March 2020 Primary" navigation={navigation} />,
+    })
+  },
+},
+{
+  cardStyle: { 
+    backgroundColor: '#EEEEEE', //this is the backgroundColor for the app
+  },
+  transitionConfig,
+});
+
+
 const AppStack = createDrawerNavigator(
   {
     /*Onboarding: {
@@ -127,7 +144,7 @@ const AppStack = createDrawerNavigator(
       }
     },
     March2020: {
-      screen: March2020Screen,
+      screen: ElectionsStack,
       navigationOptions: {
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="March 2020" title="March 2020" />
