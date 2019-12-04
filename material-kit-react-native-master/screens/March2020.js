@@ -1,9 +1,12 @@
 import React from 'react';
 // import { DrawerItems } from 'react-navigation';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
+import Icon from "react-native-vector-icons/Ionicons";
+//import { Icon } from 'react-native-elements'
 
-import { Icon, Product } from '../components/';
+
+import { Product } from '../components/';
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
@@ -13,27 +16,39 @@ export default class March2020 extends React.Component {
   renderProducts = () => {
     const { navigation } = this.props;
     return (
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.products}>
-        <Block flex>
-          <Button size = "large" style={[styles.button, styles.shadow] } color = "warning" onPress={() => navigation.navigate('Profile')} >
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Choose Candidates</Text>
-          </Button>
-        
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning">
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Swipe on Propositions</Text>
-          </Button>
+      <View flex>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.products}>
+          <Block flex>
+            <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('Profile')} >
+              <Text color="white" size={24} style={{fontWeight: 'bold'}}>Choose Candidates</Text>
+            </Button>
+          
+            <Button size = "large"  radius = {20} style={[styles.button]} color = "warning" onPress={() => navigation.navigate('Policies')} >
+              <Text color="white" size={24} style={{fontWeight: 'bold'}}>Swipe on Propositions</Text>
+            </Button>
 
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning"> 
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Your Ballot</Text>
-          </Button>
+            <Button size = "large" radius = {20} style={[styles.button]} color = "warning"> 
+              <Text color="white" size={24} style={{fontWeight: 'bold'}}>Your Ballot</Text>
+            </Button>
 
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning" onPress={() => navigation.navigate('PollingStation')} > 
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>Find Polling Stations</Text>
-          </Button>
-          </Block>
-      </ScrollView>
+            <Button size = "large" radius = {20} style={[styles.button]} color = "warning" onPress={() => navigation.navigate('PollingStation')} > 
+              <Text color="white" size={24} style={{fontWeight: 'bold'}}>Find Polling Stations</Text>
+            </Button>
+            </Block>
+        </ScrollView>
+        <View height={60}>
+          <Icon
+            reverse = {true}
+            raised = {true}
+            name='ios-arrow-dropleft-circle'
+            color='#FF9800'
+            size={40}
+            onPress={() => navigation.navigate('Home')}
+          />
+        </View>
+      </View>
     )
   }
 

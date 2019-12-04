@@ -9,7 +9,9 @@ const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class Home extends React.Component {
-
+  _disabledButtons() {
+    alert("This election is not open yet!")
+  }
   renderProducts = () => {
     const { navigation } = this.props;
     return (
@@ -17,16 +19,16 @@ export default class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Button size = "large" style={[styles.button, styles.shadow] } color = "warning" onPress={() => navigation.navigate('March2020')} >
+          <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('March2020')} >
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>March 2020</Text>
             <Text color="white" size={20}>Primary Election</Text>
           </Button>
         
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning">
+          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}>
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>August 2020</Text>
             <Text color="white" size={20}>District Election</Text> 
           </Button>
-          <Button size = "large" style={[styles.button, styles.shadow]} color = "warning"> 
+          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}> 
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>November 2020</Text>
             <Text color="white" size={20}>Presidential Election</Text> 
           </Button>

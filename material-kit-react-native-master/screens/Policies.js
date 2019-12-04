@@ -6,10 +6,12 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import { Product } from '../components/';
 
+import SwipeCards from '../components/SwipeCards.js'
+
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
-export default class PollingStation extends React.Component {
+export default class Policies extends React.Component {
 
   renderProducts = () => {
     const { navigation } = this.props;
@@ -18,14 +20,7 @@ export default class PollingStation extends React.Component {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
-        <Block flex >
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text color="black" size={20}>Your Zip Code: {"\n"} 94305</Text>
-      <Button size={10} shadowless={true} radius = {10} color='warning'>Change Zip Code</Button>
-      </View>
-        <Image style={{width: 400,height:600}} resizeMode="contain"
-                  source={require('../assets/images/pollingmap.jpg')} />
-        </Block>
+        <SwipeCards style={{flex: 1}} />
       </ScrollView>
       <View height={60}>
       <Icon

@@ -8,6 +8,7 @@ import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
 import ProfileScreen from '../screens/Profile';
+import PoliciesScreen from '../screens/Policies';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import March2020Screen from '../screens/March2020'
@@ -142,6 +143,20 @@ const PollingStack = createStackNavigator({
   transitionConfig,
 });
 
+const PoliciesStack = createStackNavigator({
+  Policies: {
+    screen: PoliciesScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header search tabs title="Policies" navigation={navigation} />,
+    })
+  },
+},
+{
+  cardStyle: { 
+    backgroundColor: '#EEEEEE', //this is the backgroundColor for the app
+  },
+  transitionConfig,
+});
 
 const AppStack = createDrawerNavigator(
   {
@@ -172,6 +187,14 @@ const AppStack = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="Polling Station" title="Polling Station" />
+        )
+      }
+    },
+    Policies: {
+      screen: PoliciesStack,
+      navigationOptions: {
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="Policies" title="Policies" />
         )
       }
     },
