@@ -42,16 +42,6 @@ export default class AllElections extends React.Component {
           </Button>
           </Block>
       </ScrollView>
-      <View height={60}>
-      <Icon
-        reverse = {true}
-        raised = {true}
-        name='ios-arrow-dropleft-circle'
-        color='#FF9800'
-        size={40}
-        onPress={() => navigation.navigate('Home')}
-      />
-    </View>
       </View>
     )
   }

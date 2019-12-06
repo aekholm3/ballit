@@ -1,7 +1,9 @@
 'use strict';
 
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
+import { Container, Header, Content, List, ListItem, Separator, Text } from 'native-base';
+
 
 import SwipeCards from 'react-native-swipe-cards';
 
@@ -29,23 +31,62 @@ class NoMoreCards extends React.Component {
   render() {
     return (
       <View style={styles.noMoreCards}>
-        <Text>No more cards</Text>
+        <Separator bordered>
+          <Text>Policies You Agree With</Text>
+        </Separator>
+        <ListItem>
+          <Text>Environment</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Taxes</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Immigration</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Abortion</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Refugees</Text>
+        </ListItem>
+        <Separator bordered>
+          <Text>Policies You Disagree With</Text>
+        </Separator>
+        <ListItem>
+          <Text>Gun Ownership</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Marijuana</Text>
+        </ListItem>
+        <Separator bordered>
+          <Text>Policies You're Uninterested In</Text>
+        </Separator>
+        <ListItem>
+          <Text>Healthcare</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Campaign Finance</Text>
+        </ListItem>
+        <ListItem>
+          <Text>College Costs</Text>
+        </ListItem>
+        
       </View>
-    )
+          );
   }
 }
 
 const cards = [
   {name: 'Enviroment', image: require('../assets/images/climate.jpg'), description: 'Climate change is real and the United States should take substantial steps to reduce greenhouse gas production.'},
-  {name: 'Gun Control', image: require('../assets/images/gun.jpg'), description: 'The second amendment protects a person’s right to own a firearm, and there should not be any more restrictions on the current process of purchasing a gun.'},
-  {name: 'Healthcare', image: require('../assets/images/healthcare.png'), description: 'Healthcare is a human right and should be available to anyone who needs it, regardless of cost.'},
-  {name: 'Taxes', image: require('../assets/images/taxes.jpg'), description: 'The federal government should reduce taxes on the wealthiest Americans.'},
-  {name: 'Immigration', image: require('../assets/images/immigration-1.jpg'), description:'Children of undocumented immigrants should be granted legal citizenship in the United States.'},
-  {name: 'Campaign Funding', image: require('../assets/images/campaign.jpg'), description: 'Campaigns should be funded with assistance from the government, and large donors should be prohibited.'},
-  {name: 'Abortion', image: require('../assets/images/abortion.jpg'), description: 'Women should have legal access to induced abortion services.'},
-  {name: 'Marijuana', image: require('../assets/images/weed.jpg'), description: 'The recreational use of marijuana should be decriminalized.'},
-  {name: 'Refugees', image: require('../assets/images/refugee.jpg'), description: 'The United States should accept refugees from countries with dangerous living conditions.'},
-  {name: 'Cost of College', image: require('../assets/images/college.jpg'), description: 'The United States federal government should pay for tuition at four-year colleges and universities.'},
+  //{name: 'Gun Control', image: require('../assets/images/gun.jpg'), description: 'The second amendment protects a person’s right to own a firearm, and there should not be any more restrictions on the current process of purchasing a gun.'},
+  //{name: 'Healthcare', image: require('../assets/images/healthcare.png'), description: 'Healthcare is a human right and should be available to anyone who needs it, regardless of cost.'},
+  //{name: 'Taxes', image: require('../assets/images/taxes.jpg'), description: 'The federal government should reduce taxes on the wealthiest Americans.'},
+  //{name: 'Immigration', image: require('../assets/images/immigration-1.jpg'), description:'Children of undocumented immigrants should be granted legal citizenship in the United States.'},
+  //{name: 'Campaign Funding', image: require('../assets/images/campaign.jpg'), description: 'Campaigns should be funded with assistance from the government, and large donors should be prohibited.'},
+  //{name: 'Abortion', image: require('../assets/images/abortion.jpg'), description: 'Women should have legal access to induced abortion services.'},
+  //{name: 'Marijuana', image: require('../assets/images/weed.jpg'), description: 'The recreational use of marijuana should be decriminalized.'},
+  //{name: 'Refugees', image: require('../assets/images/refugee.jpg'), description: 'The United States should accept refugees from countries with dangerous living conditions.'},
+  //{name: 'Cost of College', image: require('../assets/images/college.jpg'), description: 'The United States federal government should pay for tuition at four-year colleges and universities.'},
 
 ]
 
@@ -85,7 +126,7 @@ export default class App extends React.Component {
     return (
       <SwipeCards
         cards={this.state.cards}
-        loop={true}
+        loop={false}
 
         renderCard={(cardData) => <Card {...cardData} />}
         renderNoMoreCards={() => <NoMoreCards />}

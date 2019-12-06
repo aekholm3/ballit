@@ -45,10 +45,10 @@ const SearchButton = ({isWhite, style, navigation}) => (
 );
 
 class Header extends React.Component {
-  handleLeftPress = () => {
-    const { back, navigation } = this.props;
-    return (back ? navigation.goBack() : navigation.openDrawer());
-  }
+  //handleLeftPress = () => {
+  //  const { back, navigation } = this.props;
+  //  return (back ? navigation.goBack() : navigation.openDrawer());
+ // }
 
   renderRight = () => {
     const { white, title, navigation } = this.props;
@@ -205,13 +205,13 @@ class Header extends React.Component {
         <NavBar
           back={back}
           title={this.renderTitle()}
-          style={styles.navbar}
-          transparent={transparent}
-          rightStyle={{ }}
-          leftStyle={{ paddingTop: 2  }}
-          leftIconName="navicon"
-          leftIconColor={white ? theme.COLORS.WHITE : theme.COLORS.ICON}
-          onLeftPress={this.handleLeftPress}
+         style={styles.navbar}
+          //transparent={transparent}
+          //rightStyle={{ }}
+          //leftStyle={{ paddingTop: 2  }}
+          //leftIconName="navicon"
+          //leftIconColor={white ? theme.COLORS.WHITE : theme.COLORS.ICON}
+          //onLeftPress={this.handleLeftPress}
         />
       </Block>
     );
@@ -221,19 +221,22 @@ class Header extends React.Component {
 export default withNavigation(Header);
 
 const styles = StyleSheet.create({
-  button: {
-    padding: 12,
-    position: 'relative',
-  },
+  //button: {
+   // padding: 12,
+    //position: 'relative',
+ // },
   title: {
     width: '100%',
     fontSize: 24,
     fontWeight: 'bold',
   },
   navbar: {
-    paddingVertical: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE * 2,
-    paddingTop: iPhoneX ? theme.SIZES.BASE * 5 : theme.SIZES.BASE *4,
+    paddingVertical: 0,
+    paddingBottom: 0, 
+    paddingTop: 0,
+    //paddingVertical: theme.SIZES.BASE,
+    //paddingBottom: theme.SIZES.BASE * 2,
+    //paddingTop: iPhoneX ? theme.SIZES.BASE * 2 : theme.SIZES.BASE *2,
     zIndex: 5,
   },
   shadow: {
@@ -254,35 +257,35 @@ const styles = StyleSheet.create({
     right: 8,
   },
   header: {
-    height: 150,
-    backgroundColor: theme.COLORS.WHITE,
+    //height: 0,
+    //backgroundColor: theme.COLORS.WHITE,
   },
   divider: {
     borderRightWidth: 0.3,
     borderRightColor: theme.COLORS.MUTED,
   },
   search: {
-    height: 60,
-    width: width - 32,
-    marginHorizontal: 16,
-    borderWidth: 1,
-    borderRadius: 3,
+    //height: 60,
+    //width: width - 32,
+   // marginHorizontal: 16,
+   // borderWidth: 1,
+   // borderRadius: 3,
   },
   tabs: {
-    marginBottom: 24,
-    marginTop: 10,
-    elevation: 4,
+    //marginBottom: 24,
+    //marginTop: 10,
+    //elevation: 4,
   },
   tab: {
-    backgroundColor: theme.COLORS.TRANSPARENT,
-    width: width * 0.50,
-    borderRadius: 0,
-    borderWidth: 0,
-    height: 24,
-    elevation: 0,
+    //backgroundColor: theme.COLORS.TRANSPARENT,
+   // width: width * 0.50,
+    //borderRadius: 0,
+    //borderWidth: 0,
+    //height: 24,
+    //elevation: 0,
   },
   tabTitle: {
-    lineHeight: 19,
-    fontWeight: '300'
+    //lineHeight: 19,
+    //fontWeight: '300'
   },
 })

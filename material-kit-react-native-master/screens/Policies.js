@@ -22,16 +22,6 @@ export default class Policies extends React.Component {
         contentContainerStyle={styles.products}>
         <SwipeCards style={{flex: 1}} loop={true}/>
       </ScrollView>
-      <View height={60}>
-      <Icon
-        reverse = {true}
-        raised = {true}
-        name='ios-arrow-dropleft-circle'
-        color='#FF9800'
-        size={40}
-        onPress={() => navigation.navigate('March2020')}
-      />
-    </View>
     </View>
     )
   }

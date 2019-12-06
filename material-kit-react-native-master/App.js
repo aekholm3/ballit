@@ -13,12 +13,16 @@
 
 import React from 'react';
 import { Platform, StatusBar, Image } from 'react-native';
+import { createSwitchNavigator, createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import { Block, GalioProvider } from 'galio-framework';
 
 import AppContainer from './navigation/Screens';
 import { Images, products, materialTheme } from './constants/';
+
+
+
 
 // cache app images
 const assetImages = [

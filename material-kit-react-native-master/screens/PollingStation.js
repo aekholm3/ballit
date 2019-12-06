@@ -27,16 +27,6 @@ export default class PollingStation extends React.Component {
                   source={require('../assets/images/pollingmap.jpg')} />
         </Block>
       </ScrollView>
-      <View height={60}>
-      <Icon
-        reverse = {true}
-        raised = {true}
-        name='ios-arrow-dropleft-circle'
-        color='#FF9800'
-        size={40}
-        onPress={() => navigation.navigate('March2020')}
-      />
-    </View>
     </View>
     )
   }

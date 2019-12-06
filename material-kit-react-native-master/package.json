@@ -28,7 +28,8 @@
     "react-native-modal-dropdown": "^0.6.2",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-swipe-cards": "^0.1.1",
-    "react-navigation": "^3.11.0"
+    "react-navigation": "^3.11.0",
+    "@expo/vector-icons": "^10.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.0.0",

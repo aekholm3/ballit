@@ -1,7 +1,7 @@
 import React from 'react';
 import { Easing, Animated, Platform } from 'react-native';
-import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
-
+import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+//import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import { Block, Text, theme } from "galio-framework";
 
@@ -188,7 +188,7 @@ const PoliciesStack = createStackNavigator({
   transitionConfig,
 });
 
-const AppStack = createDrawerNavigator(
+const AppStack = createStackNavigator(
   {
     /*Onboarding: {
       screen: OnboardingScreen,
@@ -219,7 +219,7 @@ const AppStack = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="March 2020" title="March 2020" />
-        )
+        ),
       }
     },
     Candidates: {
@@ -246,9 +246,20 @@ const AppStack = createDrawerNavigator(
         )
       }
     },
+    //tabBarOptions: {
+    //  activeTintColor: '#FF9800',
+    //}
   },
   Menu
 );
 
-const AppContainer = createAppContainer(AppStack);
+const TabNavigator = createBottomTabNavigator({
+    Home: {screen: AppStack},
+    //Home: { screen: HomeStack },
+    Policies: {screen: PoliciesStack},
+    AllElections: { screen: AllElectionsStack },
+  });
+
+const AppContainer = createAppContainer(TabNavigator);
+//const TabContainer = createAppContainer(TabNavigator);
 export default AppContainer;
