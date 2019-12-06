@@ -17,15 +17,6 @@ const Drawer = (props) => (
           <Text h5 color="white">{props.profile.name}</Text>
         </Block>
       </TouchableWithoutFeedback>
-      <Block row>
-        <Block middle style={styles.pro}>
-          <Text size={16} color="white">{props.profile.plan}</Text>
-        </Block>
-        <Text size={16} muted style={styles.seller}>{props.profile.type}</Text>
-        <Text size={16} color={materialTheme.COLORS.WARNING}>
-          {props.profile.rating} <Icon name="shape-star" family="GalioExtra" size={14} />
-        </Text>
-      </Block>
     </Block>
     <Block flex>
       <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
@@ -37,7 +28,7 @@ const Drawer = (props) => (
 
 const profile = {
   avatar: Images.Profile,
-  name: 'Rachel Brown',
+  name: 'Abbee Brown',
   type: 'Seller',
   plan: 'Pro',
   rating: 4.8

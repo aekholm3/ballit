@@ -29,12 +29,12 @@ export default class AllElections extends React.Component {
         <Block flex>
           <Card>
             <CardItem header>
-              <Left>
+              <Left flex= {0.99}>
                 <Thumbnail source={require('../assets/images/liz.jpeg')} />
-                <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tElizabeth Warren'}</Text>
+                <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tElizabeth  \n \tWarren'}</Text>
               </Left>
-            <Right>
-            <Text color='black' style={{fontWeight: 'bold', fontSize: 16}} >{'90%'}</Text>
+            <Right flex={0.1}>
+            <Text color='black' style={{textAlign: 'right', fontWeight: 'bold', fontSize: 20}} >{'90% \n Match'}</Text>
             </Right>
             </CardItem>
             <CardItem>
@@ -53,8 +53,11 @@ export default class AllElections extends React.Component {
             <CardItem header>
               <Left>
                 <Thumbnail source={require('../assets/images/bernie.jpeg')} />
-                <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tBernie Sanders'}</Text>
+                <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tBernie \n\tSanders'}</Text>
               </Left>
+            <Right flex={0.1}>
+            <Text color='black' style={{textAlign: 'right', fontWeight: 'bold', fontSize: 20}} >{'85% \n Match'}</Text>
+            </Right>
             </CardItem>
             <CardItem>
             <Text>
@@ -72,8 +75,11 @@ export default class AllElections extends React.Component {
            <CardItem header>
              <Left>
                <Thumbnail source={require('../assets/images/joe.jpeg')} />
-               <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tJoe Biden'}</Text>
+               <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tJoe \n\tBiden'}</Text>
              </Left>
+            <Right flex={0.1}>
+            <Text color='black' style={{textAlign: 'right', fontWeight: 'bold', fontSize: 20}} >{'75% \n Match'}</Text>
+            </Right>
            </CardItem>
            <CardItem>
            <Text>
@@ -91,8 +97,11 @@ export default class AllElections extends React.Component {
            <CardItem header>
              <Left>
                <Thumbnail source={require('../assets/images/cory.jpeg')} />
-               <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tCory Booker'}</Text>
+               <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tCory \n\tBooker'}</Text>
              </Left>
+            <Right flex={0.1}>
+            <Text color='black' style={{textAlign: 'right', fontWeight: 'bold', fontSize: 20}} >{'67% \n Match'}</Text>
+            </Right>
            </CardItem>
            <CardItem>
            <Text>
@@ -113,8 +122,11 @@ export default class AllElections extends React.Component {
            <CardItem header>
              <Left>
                <Thumbnail source={require('../assets/images/tulsi.jpeg')} />
-               <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tTulsi Gabbard'}</Text>
+               <Text color={materialTheme.COLORS.WARNING} style={{fontWeight: 'bold', fontSize: 24}} >{'\tTulsi \n\tGabbard'}</Text>
              </Left>
+            <Right flex={0.1}>
+            <Text color='black' style={{textAlign: 'right', fontWeight: 'bold', fontSize: 20}} >{'57% \n Match'}</Text>
+            </Right>
            </CardItem>
            <CardItem>
            <Text>
