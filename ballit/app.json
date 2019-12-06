@@ -1,8 +1,8 @@
 {
   "expo": {
     "owner": "ballit",
-    "name": "rn-material-kit-free",
-    "description": "React Native - Material Kit Free",
+    "name": "ballit",
+    "description": "ballit",
     "slug": "rn-material-kit-free",
     "privacy": "unlisted",
     "sdkVersion": "35.0.0",
@@ -12,7 +12,7 @@
     ],
     "version": "1.4.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/fire.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
