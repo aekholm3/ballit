@@ -45,7 +45,7 @@ export default class March2020 extends React.Component {
             name='ios-arrow-dropleft-circle'
             color='#FF9800'
             size={40}
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('AllElections')}
           />
         </View>
       </View>

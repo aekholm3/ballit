@@ -1,6 +1,6 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-import { TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native';
+import { TouchableOpacity, StyleSheet, Platform, Dimensions, Image, View } from 'react-native';
 import { Button, Block, NavBar, Input, Text, theme } from 'galio-framework';
 
 import Icon from './Icon';
@@ -54,11 +54,10 @@ class Header extends React.Component {
     const { white, title, navigation } = this.props;
     const { routeName } = navigation.state;
 
-    if (title === 'Title') {
-      /*return [
-        <ChatButton key='chat-title' navigation={navigation} isWhite={white} />,
-        <BasketButton key='basket-title' navigation={navigation} isWhite={white} />
-      ]*/
+    if (title === '') {
+      return [
+        <Image  style={{width: 200, height:90, resizeMode:"contain"}} source={require('../assets/images/logo.png')} />
+      ]
     }
 
     switch (routeName) {
@@ -154,6 +153,37 @@ class Header extends React.Component {
     }
     return null;
   }*/
+  renderTitle = () => {
+    const { white, title, navigation } = this.props;
+    const { routeName } = navigation.state;
+    if (title === '') {
+      return [
+        <Image  style={{width: 275,  height:275, resizeMode:"contain"}} key={title} source={require('../assets/images/logo.png')} />
+      ]
+    } 
+    if (title === 'All Elections') {
+      return [
+        <Image  style={{width: 275,height:30, resizeMode:"contain"}} key={title} source={require('../assets/images/upcoming-elections.png')} />
+      ]
+    } 
+    if (title === 'Policies') {
+      return [
+        <Image  style={{width: 275,height:30, resizeMode:"contain"}} key={title} source={require('../assets/images/policies.png')} />
+      ]
+    } 
+
+    if (title === 'Polling Stations') {
+      return [
+        <Image  style={{width: 275,height:30, resizeMode:"contain"}} key={title} source={require('../assets/images/polling-stations.png')} />
+      ]
+    } 
+
+    if (title === 'March 2020 Primary') {
+      return [
+        <Image  style={{width: 275,height:25, resizeMode:"contain"}} key={title} source={require('../assets/images/march-2020.png')} />
+      ]
+    } 
+  }
 
   render() {
     const { back, title, white, transparent, navigation } = this.props;
@@ -168,18 +198,13 @@ class Header extends React.Component {
       <Block style={headerStyles}>
         <NavBar
           back={back}
-          title={title}
+          title={this.renderTitle()}
           style={styles.navbar}
           transparent={transparent}
-          right={this.renderRight()}
-          rightStyle={{ alignItems: 'center' }}
-          leftStyle={{ flex: 0.3, paddingTop: 2  }}
+          rightStyle={{ }}
+          leftStyle={{ paddingTop: 2  }}
           leftIconName="navicon"
           leftIconColor={white ? theme.COLORS.WHITE : theme.COLORS.ICON}
-          titleStyle={[
-            styles.title,
-            {color: theme.COLORS[white ? 'WHITE' : 'ICON']},
-          ]}
           onLeftPress={this.handleLeftPress}
         />
       </Block>
@@ -200,9 +225,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   navbar: {
-    paddingVertical: 0,
-    paddingBottom: theme.SIZES.BASE * 1.5,
-    paddingTop: iPhoneX ? theme.SIZES.BASE * 4 : theme.SIZES.BASE,
+    paddingVertical: theme.SIZES.BASE,
+    paddingBottom: theme.SIZES.BASE * 2,
+    paddingTop: iPhoneX ? theme.SIZES.BASE * 5 : theme.SIZES.BASE *4,
     zIndex: 5,
   },
   shadow: {
@@ -223,7 +248,7 @@ const styles = StyleSheet.create({
     right: 8,
   },
   header: {
-    height: theme.SIZES.BASE * 3,
+    height: 150,
     backgroundColor: theme.COLORS.WHITE,
   },
   divider: {

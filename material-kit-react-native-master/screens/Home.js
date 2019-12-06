@@ -1,39 +1,33 @@
 import React from 'react';
 // import { DrawerItems } from 'react-navigation';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
+import Icon from "react-native-vector-icons/Ionicons";
 
-import { Icon, Product } from '../components/';
+import { Product } from '../components/';
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class Home extends React.Component {
-  _disabledButtons() {
-    alert("This election is not open yet!")
-  }
+
   renderProducts = () => {
     const { navigation } = this.props;
     return (
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.products}>
-        <Block flex>
-          <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('March2020')} >
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>March 2020</Text>
-            <Text color="white" size={20}>Primary Election</Text>
-          </Button>
-        
-          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}>
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>August 2020</Text>
-            <Text color="white" size={20}>District Election</Text> 
-          </Button>
-          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}> 
-            <Text color="white" size={24} style={{fontWeight: 'bold'}}>November 2020</Text>
-            <Text color="white" size={20}>Presidential Election</Text> 
-          </Button>
-          </Block>
-      </ScrollView>
+      <View>
+        <ScrollView>
+        <View style={{flex:1, justifyContent:'flex-start'}}>
+        <Image style={{width: 400, height:300,resizeMode:"contain"}} source={require('../assets/images/six.jpeg')} />
+          
+        <Image  style={{width: 400, height:150, resizeMode:"contain"}} source={require('../assets/images/one.jpeg')} />
+        <Image style={{width: 400, height:300, resizeMode:"contain"}}  source={require('../assets/images/two.jpeg')} />
+        <Image style={{width: 400, height:300, resizeMode:"contain"}}  source={require('../assets/images/three.jpeg')} />
+        <Image style={{width: 400, height:400,resizeMode:"contain"}} source={require('../assets/images/four.jpeg')} />
+        <Image style={{width: 400, height:400,resizeMode:"contain"}} source={require('../assets/images/five.jpeg')} />
+        <Image style={{width: 400, height:150,resizeMode:"contain"}} source={require('../assets/images/seven.jpeg')} />
+        </View>
+        </ScrollView>
+        </View>
     )
   }
 
@@ -47,6 +41,10 @@ export default class Home extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    box: {
+        justifyContent: "center",
+        flexDirection:"row", 
+    },
   shadow: {
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
   },
   home: {
     width: width,    
-  },
+  }, 
   header: {
     backgroundColor: theme.COLORS.WHITE,
     shadowColor: theme.COLORS.BLACK,
@@ -83,4 +81,7 @@ const styles = StyleSheet.create({
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE * 2,
   },
+  contentContainer: {
+    paddingVertical: 20
+  }
 });

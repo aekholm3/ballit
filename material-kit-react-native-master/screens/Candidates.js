@@ -1,26 +1,40 @@
 import React from 'react';
 // import { DrawerItems } from 'react-navigation';
-import { StyleSheet, Dimensions, ScrollView, Image, View } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 import Icon from "react-native-vector-icons/Ionicons";
 
 import { Product } from '../components/';
 
-import SwipeCards from '../components/SwipeCards.js'
-
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
-export default class Policies extends React.Component {
-
+export default class AllElections extends React.Component {
+  _disabledButtons() {
+    alert("This election is not open yet!")
+  }
   renderProducts = () => {
     const { navigation } = this.props;
     return (
-      <View>
+      <View flex>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
-        <SwipeCards style={{flex: 1}} loop={true}/>
+        <Block flex>
+          <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('March2020')} >
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>March 2020</Text>
+            <Text color="white" size={20}>Primary Election</Text>
+          </Button>
+        
+          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}>
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>August 2020</Text>
+            <Text color="white" size={20}>District Election</Text> 
+          </Button>
+          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}> 
+            <Text color="white" size={24} style={{fontWeight: 'bold'}}>November 2020</Text>
+            <Text color="white" size={20}>Presidential Election</Text> 
+          </Button>
+          </Block>
       </ScrollView>
       <View height={60}>
       <Icon
@@ -29,10 +43,10 @@ export default class Policies extends React.Component {
         name='ios-arrow-dropleft-circle'
         color='#FF9800'
         size={40}
-        onPress={() => navigation.navigate('March2020')}
+        onPress={() => navigation.navigate('Home')}
       />
     </View>
-    </View>
+      </View>
     )
   }
 
@@ -46,10 +60,6 @@ export default class Policies extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    box: {
-        justifyContent: "center",
-        flexDirection:"row", 
-    },
   shadow: {
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
@@ -64,7 +74,7 @@ const styles = StyleSheet.create({
   },
   home: {
     width: width,    
-  }, 
+  },
   header: {
     backgroundColor: theme.COLORS.WHITE,
     shadowColor: theme.COLORS.BLACK,

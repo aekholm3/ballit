@@ -13,6 +13,7 @@ import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import March2020Screen from '../screens/March2020'
 import PollingStationScreen from '../screens/PollingStation'
+import AllElectionsScreen from '../screens/AllElections'
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -66,6 +67,18 @@ const ProfileStack = createStackNavigator({
   transitionConfig,
 });
 
+const AllElectionsStack = createStackNavigator({
+  AllElections: {
+    screen: AllElectionsScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="All Elections" navigation={navigation} />,
+    })
+  },
+}, {
+  cardStyle: { backgroundColor: '#EEEEEE', },
+  transitionConfig,
+});
+
 const SettingsStack = createStackNavigator({
   Settings: {
     screen: SettingsScreen,
@@ -94,7 +107,7 @@ const HomeStack = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: ({navigation}) => ({
-      header: <Header search tabs title="Upcoming Elections" navigation={navigation} />,
+      header: <Header search tabs title="" navigation={navigation} />,
     })
   },
   Pro: {
@@ -170,10 +183,19 @@ const AppStack = createDrawerNavigator(
       screen: HomeStack,
       navigationOptions: {
         drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Upcoming Elections" title="Upcoming Elections" />
+          <Drawer focused={focused} screen="Home" title="Home" />
         )
       }
     },
+    AllElections: {
+      screen: AllElectionsStack,
+      navigationOptions: (navOpt) => ({
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="All Elections" title="All Elections" />
+        ),
+      }),
+    },
+    
     March2020: {
       screen: ElectionsStack,
       navigationOptions: {
@@ -197,84 +219,6 @@ const AppStack = createDrawerNavigator(
           <Drawer focused={focused} screen="Policies" title="Policies" />
         )
       }
-    },
-    Woman: {
-      screen: ProScreen,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Woman" />
-        ),
-      }),
-    },
-    Man: {
-      screen: ProScreen,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Man" />
-        ),
-      }),
-    },
-    Kids: {
-      screen: ProScreen,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Kids" />
-        ),
-      }),
-    },
-    NewCollection: {
-      screen: ProScreen,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="New Collection" />
-        ),
-      }),
-    },
-    Profile: {
-      screen: ProfileStack,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Profile" title="Profile" />
-        ),
-      }),
-    },
-    Settings: {
-      screen: SettingsStack,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Settings" title="Settings" />
-        ),
-      }),
-    },
-    Components: {
-      screen: ComponentsStack,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Components" title="Components" />
-        ),
-      }),
-    },
-    MenuDivider: {
-      screen: HomeStack,
-      navigationOptions: {
-        drawerLabel: () => <Block style={{marginVertical: 8}}><Text>{` `}</Text></Block>,
-      },
-    },
-    SignIn: {
-      screen: ProScreen,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Sign In" />
-        ),
-      }),
-    },
-    SignUp: {
-      screen: ProScreen,
-      navigationOptions: (navOpt) => ({
-        drawerLabel: ({focused}) => (
-          <Drawer focused={focused} screen="Pro" title="Sign Up" />
-        ),
-      }),
     },
   },
   Menu
