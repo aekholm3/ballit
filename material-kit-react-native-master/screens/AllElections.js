@@ -1,10 +1,16 @@
 import React from 'react';
 // import { DrawerItems } from 'react-navigation';
 import { StyleSheet, Dimensions, ScrollView, View } from 'react-native';
-import { Button, Block, Text, Input, theme } from 'galio-framework';
+import { Button, Block, Input, theme, Text } from 'galio-framework';
 import Icon from "react-native-vector-icons/Ionicons";
 
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+
 import { Product } from '../components/';
+
+//import {Home} from 'Home.js';
+//import {Candidates} from 'Candidates.js';
+
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
@@ -57,7 +63,16 @@ export default class AllElections extends React.Component {
       </Block>
     );
   }
+
+  
+
+
 }
+
+//const TabNavigator = createBottomTabNavigator({
+//    Home: { screen: Home },
+//    Settings: { screen: Candidates },
+//  });
 
 const styles = StyleSheet.create({
   shadow: {

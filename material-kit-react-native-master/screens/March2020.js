@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 //import { Icon } from 'react-native-elements'
 
 
-import { Product } from '../components/';
+import { Product } from '../components';
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
@@ -21,11 +21,11 @@ export default class March2020 extends React.Component {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.products}>
           <Block flex>
-            <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('Profile')} >
+            <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('Candidates')} >
               <Text color="white" size={24} style={{fontWeight: 'bold'}}>Choose Candidates</Text>
             </Button>
           
-            <Button size = "large"  radius = {20} style={[styles.button]} color = "warning" onPress={() => navigation.navigate('Policies')} >
+            <Button size = "large"  radius = {20} style={[styles.button]} color = "warning" >
               <Text color="white" size={24} style={{fontWeight: 'bold'}}>Swipe on Propositions</Text>
             </Button>
 

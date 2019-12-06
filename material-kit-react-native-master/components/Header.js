@@ -183,6 +183,12 @@ class Header extends React.Component {
         <Image  style={{width: 275,height:25, resizeMode:"contain"}} key={title} source={require('../assets/images/march-2020.png')} />
       ]
     } 
+
+    if (title === 'Candidates') {
+      return [
+        <Image  style={{width: 275,height:25, resizeMode:"contain"}} key={title} source={require('../assets/images/candidates.png')} />
+      ]
+    } 
   }
 
   render() {

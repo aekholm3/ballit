@@ -13,7 +13,7 @@ class Card extends React.Component {
   render() {
     return (
       <View style={styles.card}>
-        <Image style={styles.thumbnail} resizeMode="contain" source={{uri: this.props.image}} />
+        <Image style={styles.thumbnail} resizeMode="contain" source={this.props.image } />
         <Text style={styles.title}>{this.props.name}</Text>
         <Text style={styles.text}>{this.props.description}</Text>
       </View>
@@ -36,13 +36,17 @@ class NoMoreCards extends React.Component {
 }
 
 const cards = [
-  {name: 'Enviroment', image: 'https://media.giphy.com/media/cObIzBCAkFxW60ORYj/giphy.gif', description: 'We need to enact policies to protect the environment.'},
-  {name: 'Gun Control', image: 'https://media.giphy.com/media/xK5f8KDg9cVSo/giphy.gif'},
-  {name: 'Healthcare', image: 'https://media.giphy.com/media/YlmI36YAWe7KScC7hK/giphy.gif'},
-  {name: 'Taxes', image: 'https://media.giphy.com/media/rE04CIrzIrSN2/giphy.gif'},
-  {name: 'Immigration', image: 'https://media.giphy.com/media/U3rdDvu763AqEqX92O/giphy.gif'},
-  {name: 'Campaign Funding', image: 'https://media.giphy.com/media/JpG2A9P3dPHXaTYrwu/giphy.gif'},
-  {name: 'Abortion', image: 'https://media.giphy.com/media/JpG2A9P3dPHXaTYrwu/giphy.gif'},
+  {name: 'Enviroment', image: require('../assets/images/climate.jpg'), description: 'Climate change is real and the United States should take substantial steps to reduce greenhouse gas production.'},
+  {name: 'Gun Control', image: require('../assets/images/gun.jpg'), description: 'The second amendment protects a person’s right to own a firearm, and there should not be any more restrictions on the current process of purchasing a gun.'},
+  {name: 'Healthcare', image: require('../assets/images/healthcare.png'), description: 'Healthcare is a human right and should be available to anyone who needs it, regardless of cost.'},
+  {name: 'Taxes', image: require('../assets/images/taxes.jpg'), description: 'The federal government should reduce taxes on the wealthiest Americans.'},
+  {name: 'Immigration', image: require('../assets/images/immigration-1.jpg'), description:'Children of undocumented immigrants should be granted legal citizenship in the United States.'},
+  {name: 'Campaign Funding', image: require('../assets/images/campaign.jpg'), description: 'Campaigns should be funded with assistance from the government, and large donors should be prohibited.'},
+  {name: 'Abortion', image: require('../assets/images/abortion.jpg'), description: 'Women should have legal access to induced abortion services.'},
+  {name: 'Marijuana', image: require('../assets/images/weed.jpg'), description: 'The recreational use of marijuana should be decriminalized.'},
+  {name: 'Refugees', image: require('../assets/images/refugee.jpg'), description: 'The United States should accept refugees from countries with dangerous living conditions.'},
+  {name: 'Cost of College', image: require('../assets/images/college.jpg'), description: 'The United States federal government should pay for tuition at four-year colleges and universities.'},
+
 ]
 
 const cards2 = [

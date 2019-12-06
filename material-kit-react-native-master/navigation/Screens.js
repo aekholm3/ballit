@@ -2,6 +2,7 @@ import React from 'react';
 import { Easing, Animated, Platform } from 'react-native';
 import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
 
+
 import { Block, Text, theme } from "galio-framework";
 
 import ComponentsScreen from '../screens/Components';
@@ -14,6 +15,7 @@ import SettingsScreen from '../screens/Settings';
 import March2020Screen from '../screens/March2020'
 import PollingStationScreen from '../screens/PollingStation'
 import AllElectionsScreen from '../screens/AllElections'
+import CandidatesScreen from '../screens/Candidates'
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -141,6 +143,21 @@ const ElectionsStack = createStackNavigator({
   transitionConfig,
 });
 
+const CandidatesStack = createStackNavigator({
+  Candidates: {
+    screen: CandidatesScreen,
+    navigationOptions: ({navigation}) => ({
+      header: <Header search tabs title="Candidates" navigation={navigation} />,
+    })
+  },
+},
+{
+  cardStyle: { 
+    backgroundColor: '#EEEEEE', //this is the backgroundColor for the app
+  },
+  transitionConfig,
+});
+
 const PollingStack = createStackNavigator({
   PollingStation: {
     screen: PollingStationScreen,
@@ -179,6 +196,7 @@ const AppStack = createDrawerNavigator(
         drawerLabel: () => {},
       },
     },*/
+    
     Home: {
       screen: HomeStack,
       navigationOptions: {
@@ -201,6 +219,14 @@ const AppStack = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: ({focused}) => (
           <Drawer focused={focused} screen="March 2020" title="March 2020" />
+        )
+      }
+    },
+    Candidates: {
+      screen: CandidatesStack,
+      navigationOptions: {
+        drawerLabel: ({focused}) => (
+          <Drawer focused={focused} screen="Candidates" title="Candidates" />
         )
       }
     },
