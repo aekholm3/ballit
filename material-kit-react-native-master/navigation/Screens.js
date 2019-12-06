@@ -2,8 +2,9 @@ import React from 'react';
 import { Easing, Animated, Platform } from 'react-native';
 import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-
 import { Block, Text, theme } from "galio-framework";
+
+import Icon from "react-native-vector-icons/Ionicons";
 
 import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
@@ -16,6 +17,7 @@ import March2020Screen from '../screens/March2020'
 import PollingStationScreen from '../screens/PollingStation'
 import AllElectionsScreen from '../screens/AllElections'
 import CandidatesScreen from '../screens/Candidates'
+
 
 import Menu from './Menu';
 import Header from '../components/Header';
@@ -249,16 +251,77 @@ const AppStack = createStackNavigator(
     //tabBarOptions: {
     //  activeTintColor: '#FF9800',
     //}
-  },
-  Menu
+    
+  }, 
+  {
+    headerMode: 'none'
+  }
 );
 
 const TabNavigator = createBottomTabNavigator({
-    Home: {screen: AppStack},
+    Home: {
+      screen: AppStack, 
+      navigationOptions: {
+      tabBarLabel: ({focused}) => (
+        <Text>Home</Text>
+      ), 
+      tabBarIcon: ({ focused }) => (
+        <Icon
+        reverse = {true}
+        raised = {true}
+        name='ios-home'
+        color='black'
+        size={22}
+      />
+           ),
+    }},
     //Home: { screen: HomeStack },
-    Policies: {screen: PoliciesStack},
-    AllElections: { screen: AllElectionsStack },
-  });
+    Policies: {
+      screen: PoliciesStack, 
+      navigationOptions: {
+      tabBarLabel: ({focused}) => (
+        <Text>Policies</Text>
+      ), 
+      tabBarIcon: ({ focused }) => (
+        <Icon
+        reverse = {true}
+        raised = {true}
+        name='ios-book'
+        color='black'
+        size={22}
+      />
+           ),
+    }},
+    AllElections: { screen: AllElectionsStack, 
+      navigationOptions: {
+      tabBarLabel: ({focused}) => (
+        <Text>Elections</Text>
+      ), 
+      tabBarIcon: ({ focused }) => (
+        <Icon
+        reverse = {true}
+        raised = {true}
+        name='md-checkmark-circle-outline'
+        color='black'
+        size={22}
+      />
+           ),
+    }},
+  }, {
+    tabBarOptions: {
+    activeTintColor: 'black',
+    inactiveTintColor: 'black',
+    labelStyle: {
+      fontSize:  12
+    },
+    style : {
+      backgroundColor: 'white'
+    },
+
+  }
+});
+
+
 
 const AppContainer = createAppContainer(TabNavigator);
 //const TabContainer = createAppContainer(TabNavigator);

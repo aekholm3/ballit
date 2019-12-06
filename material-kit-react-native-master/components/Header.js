@@ -3,7 +3,7 @@ import { withNavigation } from 'react-navigation';
 import { TouchableOpacity, StyleSheet, Platform, Dimensions, Image, View } from 'react-native';
 import { Button, Block, NavBar, Input, Text, theme } from 'galio-framework';
 
-import Icon from './Icon';
+import Icon from "react-native-vector-icons/Ionicons";
 import materialTheme from '../constants/Theme';
 
 const { height, width } = Dimensions.get('window');
@@ -45,10 +45,10 @@ const SearchButton = ({isWhite, style, navigation}) => (
 );
 
 class Header extends React.Component {
-  //handleLeftPress = () => {
-  //  const { back, navigation } = this.props;
-  //  return (back ? navigation.goBack() : navigation.openDrawer());
- // }
+  handleLeftPress = () => {
+    return this.props.navigation.goBack(null);
+
+  }
 
   renderRight = () => {
     const { white, title, navigation } = this.props;
@@ -191,6 +191,15 @@ class Header extends React.Component {
     } 
   }
 
+  renderIcon = () => {
+    const { title } = this.props;
+    if (title !== ''){
+      return 'chevron-left'
+    }
+    return 'user'
+    
+  }
+
   render() {
     const { back, title, white, transparent, navigation } = this.props;
     const { routeName } = navigation.state;
@@ -203,15 +212,16 @@ class Header extends React.Component {
     return (
       <Block style={headerStyles}>
         <NavBar
-          back={back}
+          back={true}
           title={this.renderTitle()}
          style={styles.navbar}
           //transparent={transparent}
           //rightStyle={{ }}
-          //leftStyle={{ paddingTop: 2  }}
-          //leftIconName="navicon"
-          //leftIconColor={white ? theme.COLORS.WHITE : theme.COLORS.ICON}
-          //onLeftPress={this.handleLeftPress}
+          leftHitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}
+          leftStyle={{ paddingVertical: -12, height: 100, width:100, size: 100}}
+          leftIconName={this.renderIcon()}
+          leftIconColor={white ? theme.COLORS.WHITE : theme.COLORS.ICON}
+          onLeftPress={this.handleLeftPress}
         />
       </Block>
     );
@@ -231,12 +241,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   navbar: {
-    paddingVertical: 0,
-    paddingBottom: 0, 
-    paddingTop: 0,
-    //paddingVertical: theme.SIZES.BASE,
-    //paddingBottom: theme.SIZES.BASE * 2,
-    //paddingTop: iPhoneX ? theme.SIZES.BASE * 2 : theme.SIZES.BASE *2,
+    //paddingVertical: 0,
+    //paddingBottom: 0, 
+    //paddingTop: 0,
+    paddingVertical: theme.SIZES.BASE,
+    paddingBottom: theme.SIZES.BASE * 2,
+    paddingTop: iPhoneX ? theme.SIZES.BASE * 5 : theme.SIZES.BASE *5,
     zIndex: 5,
   },
   shadow: {

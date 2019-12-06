@@ -2,10 +2,12 @@
 
 import React from 'react';
 import {StyleSheet, View, Image} from 'react-native';
-import { Container, Header, Content, List, ListItem, Separator, Text } from 'native-base';
+import { Container, Header, Content, List, ListItem, Separator } from 'native-base';
+import { Button, Block, Input, theme, Text } from 'galio-framework';
 
 
 import SwipeCards from 'react-native-swipe-cards';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class Card extends React.Component {
   constructor(props) {
@@ -32,7 +34,7 @@ class NoMoreCards extends React.Component {
     return (
       <View style={styles.noMoreCards}>
         <Separator bordered>
-          <Text>Policies You Agree With</Text>
+          <Text style={{color:'#FF9800', fontWeight:'bold'}}>Policies You Agree With</Text>
         </Separator>
         <ListItem>
           <Text>Environment</Text>
@@ -50,7 +52,7 @@ class NoMoreCards extends React.Component {
           <Text>Refugees</Text>
         </ListItem>
         <Separator bordered>
-          <Text>Policies You Disagree With</Text>
+          <Text style={{color:'#FF9800', fontWeight:'bold'}}>Policies You Disagree With</Text>
         </Separator>
         <ListItem>
           <Text>Gun Ownership</Text>
@@ -59,7 +61,7 @@ class NoMoreCards extends React.Component {
           <Text>Marijuana</Text>
         </ListItem>
         <Separator bordered>
-          <Text>Policies You're Uninterested In</Text>
+          <Text style={{color:'#FF9800', fontWeight:'bold'}}>Policies You're Uninterested In</Text>
         </Separator>
         <ListItem>
           <Text>Healthcare</Text>
@@ -70,6 +72,12 @@ class NoMoreCards extends React.Component {
         <ListItem>
           <Text>College Costs</Text>
         </ListItem>
+
+        <View>
+        <Button size = "small" radius = {20} style={[styles.button, styles.shadow]} color = "#FF9800"> 
+          <Text color="white" size={16} style={{fontWeight: 'bold'}}>Restart Swiping</Text>
+        </Button>
+        </View>
         
       </View>
           );
@@ -78,15 +86,15 @@ class NoMoreCards extends React.Component {
 
 const cards = [
   {name: 'Enviroment', image: require('../assets/images/climate.jpg'), description: 'Climate change is real and the United States should take substantial steps to reduce greenhouse gas production.'},
-  //{name: 'Gun Control', image: require('../assets/images/gun.jpg'), description: 'The second amendment protects a person’s right to own a firearm, and there should not be any more restrictions on the current process of purchasing a gun.'},
-  //{name: 'Healthcare', image: require('../assets/images/healthcare.png'), description: 'Healthcare is a human right and should be available to anyone who needs it, regardless of cost.'},
-  //{name: 'Taxes', image: require('../assets/images/taxes.jpg'), description: 'The federal government should reduce taxes on the wealthiest Americans.'},
-  //{name: 'Immigration', image: require('../assets/images/immigration-1.jpg'), description:'Children of undocumented immigrants should be granted legal citizenship in the United States.'},
-  //{name: 'Campaign Funding', image: require('../assets/images/campaign.jpg'), description: 'Campaigns should be funded with assistance from the government, and large donors should be prohibited.'},
-  //{name: 'Abortion', image: require('../assets/images/abortion.jpg'), description: 'Women should have legal access to induced abortion services.'},
-  //{name: 'Marijuana', image: require('../assets/images/weed.jpg'), description: 'The recreational use of marijuana should be decriminalized.'},
-  //{name: 'Refugees', image: require('../assets/images/refugee.jpg'), description: 'The United States should accept refugees from countries with dangerous living conditions.'},
-  //{name: 'Cost of College', image: require('../assets/images/college.jpg'), description: 'The United States federal government should pay for tuition at four-year colleges and universities.'},
+  {name: 'Gun Control', image: require('../assets/images/gun.jpg'), description: 'The second amendment protects a person’s right to own a firearm, and there should not be any more restrictions on the current process of purchasing a gun.'},
+  {name: 'Healthcare', image: require('../assets/images/healthcare.png'), description: 'Healthcare is a human right and should be available to anyone who needs it, regardless of cost.'},
+  {name: 'Taxes', image: require('../assets/images/taxes.jpg'), description: 'The federal government should reduce taxes on the wealthiest Americans.'},
+  {name: 'Immigration', image: require('../assets/images/immigration-1.jpg'), description:'Children of undocumented immigrants should be granted legal citizenship in the United States.'},
+  {name: 'Campaign Funding', image: require('../assets/images/campaign.jpg'), description: 'Campaigns should be funded with assistance from the government, and large donors should be prohibited.'},
+  {name: 'Abortion', image: require('../assets/images/abortion.jpg'), description: 'Women should have legal access to induced abortion services.'},
+  {name: 'Marijuana', image: require('../assets/images/weed.jpg'), description: 'The recreational use of marijuana should be decriminalized.'},
+  {name: 'Refugees', image: require('../assets/images/refugee.jpg'), description: 'The United States should accept refugees from countries with dangerous living conditions.'},
+  {name: 'Cost of College', image: require('../assets/images/college.jpg'), description: 'The United States federal government should pay for tuition at four-year colleges and universities.'},
 
 ]
 
@@ -180,5 +188,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  }, 
+  shadow: {
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    shadowOpacity: 0.2,
+    elevation: 2,
+  },
 })

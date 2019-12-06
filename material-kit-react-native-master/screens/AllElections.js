@@ -6,6 +6,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
+import { Container, Header, Content, List, ListItem, Separator } from 'native-base';
+
 import { Product } from '../components/';
 
 //import {Home} from 'Home.js';
@@ -16,8 +18,11 @@ const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class AllElections extends React.Component {
-  _disabledButtons() {
-    alert("This election is not open yet!")
+  _disabledButtonsAug() {
+    alert("This election is not open yet! \n Check back in 3 months to see which candidates you best match with!")
+  }
+  _disabledButtonsNov() {
+    alert("This election is not open yet! \n Check back in 6 months to see which candidates you best match with!")
   }
   renderProducts = () => {
     const { navigation } = this.props;
@@ -27,16 +32,21 @@ export default class AllElections extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Button size = "large" radius = {20} style={[styles.button] } color = "warning" onPress={() => navigation.navigate('March2020')} >
+          <Separator bordered style={{paddingBottom:10, paddingTop: 10, paddingVertical: 30 }}>
+            <Text>Active</Text>
+          </Separator>
+          <Button size = "large" radius = {20} style={[styles.button] } paddingVertical={20}  color = "warning" onPress={() => navigation.navigate('March2020')} >
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>March 2020</Text>
             <Text color="white" size={20}>Primary Election</Text>
           </Button>
-        
-          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}>
+          <Separator bordered style={{paddingBottom:10, paddingTop: 10, paddingVertical: 30 }}>
+            <Text>Upcoming</Text>
+          </Separator>
+          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtonsAug}>
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>August 2020</Text>
             <Text color="white" size={20}>District Election</Text> 
           </Button>
-          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtons}> 
+          <Button size = "large" radius = {20} style={[styles.button, styles.shadow]} color = "#a9a9a9" onPress={this._disabledButtonsNov}> 
             <Text color="white" size={24} style={{fontWeight: 'bold'}}>November 2020</Text>
             <Text color="white" size={20}>Presidential Election</Text> 
           </Button>

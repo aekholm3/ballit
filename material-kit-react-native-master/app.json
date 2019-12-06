@@ -12,11 +12,6 @@
     "version": "1.4.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#6C24AA"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
