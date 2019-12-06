@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 
-import { materialTheme, products, Images } from '../constants/';
-import { Select, Icon, Header, Product, Switch } from '../components/';
+import { materialTheme, products, Images } from '../constants';
+import { Select, Icon, Header, Product, Switch } from '../components';
 
 const { width } = Dimensions.get('screen');
 

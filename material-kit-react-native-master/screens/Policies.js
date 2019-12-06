@@ -4,7 +4,7 @@ import { StyleSheet, Dimensions, ScrollView, Image, View } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 import Icon from "react-native-vector-icons/Ionicons";
 
-import { Product } from '../components/';
+import { Product } from '../components';
 
 import SwipeCards from '../components/SwipeCards.js'
 
