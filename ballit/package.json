@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.7.1",
-    "expo": "^35.0.0",
+    "expo": "^48.0.0",
     "expo-asset": "~7.0.0",
     "expo-font": "~7.0.0",
     "expo-linear-gradient": "~7.0.0",
